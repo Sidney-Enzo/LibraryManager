@@ -113,4 +113,13 @@ Este projeto é licenciado sob a [MIT License](LICENSE).
 
 ---
 
+## 📞 Contact / Contato
+
+[pt-br]
+- GitHub: [meuNobre](https://github.com/meuNobre)
+- Email: miguelnobre0411@gmail.com
+- Discord: icloudsz
+
+---
+
 Feito com ❤️ por [Nobre](https://github.com/meuNobre).
