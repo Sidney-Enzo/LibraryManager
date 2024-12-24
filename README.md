@@ -1,19 +1,19 @@
 
-# LibraryManager
+# LibraryManager 📚
 
 **LibraryManager** é um sistema de gerenciamento de bibliotecas desenvolvido com Python, MySQL e conceitos de Programação Orientada a Objetos (POO). Este projeto demonstra integração de Python com MySQL, usando variáveis de ambiente para proteção de informações sensíveis como credenciais de banco de dados.
 
 ---
 
-## Funcionalidades
+## Funcionalidades ⚙️
 
-- **Gerenciamento de Livros**:
+- **Gerenciamento de Livros** 📖:
   - Adicionar, listar, editar e excluir livros.
-- **Gerenciamento de Usuários**:
+- **Gerenciamento de Usuários** 👤:
   - Cadastrar, listar e excluir usuários.
-- **Controle de Empréstimos**:
+- **Controle de Empréstimos** 📅:
   - Registrar empréstimos, verificar status de devoluções e consultar histórico.
-- **Relatórios**:
+- **Relatórios** 📊:
   - Gerar relatórios simples como:
     - Livros disponíveis.
     - Livros emprestados.
@@ -21,24 +21,25 @@
 
 ---
 
-## Tecnologias Utilizadas
+## Tecnologias Utilizadas 💻
 
 - **Python**: Linguagem principal do projeto.
 - **MySQL**: Banco de dados relacional para armazenar informações.
 - **MySQL Workbench**: Ferramenta para gerenciar o banco de dados.
 - **Python-dotenv**: Para gerenciar variáveis de ambiente com segurança.
+- **Datetime**: Biblioteca Python para manipulação de datas e horas, utilizada para registrar e formatar informações temporais.
 
 ---
 
-## Como Configurar o Projeto
+## Como Configurar o Projeto ⚙️
 
-### Pré-requisitos
+### Pré-requisitos 🛠️
 
 1. Python 3.10+ instalado.
 2. MySQL instalado e configurado.
 3. MySQL Workbench (opcional, para gerenciar o banco visualmente).
 
-### Passos para Configuração
+### Passos para Configuração 📑
 
 1. **Clone o repositório**:
    ```bash
@@ -51,7 +52,7 @@
    pip install -r requirements.txt
    ```
 
-3. **Configure as variáveis de ambiente**:
+3. **Configure as variáveis de ambiente** 🔐: 
    - Crie um arquivo `.env` no diretório raiz com o seguinte conteúdo:
      ```plaintext
      DB_HOST=localhost
@@ -60,7 +61,7 @@
      DB_NAME=library_manager
      ```
 
-4. **Configure o banco de dados**:
+4. **Configure o banco de dados** 📋:
    - No MySQL Workbench, crie um banco de dados chamado `library_manager`.
    - Execute o script `database/library_schema.sql` para criar as tabelas.
 
@@ -71,20 +72,20 @@
 
 ---
 
-## Estrutura do Banco de Dados
+## Estrutura do Banco de Dados 🗃️
 
 O banco de dados contém as seguintes tabelas:
 
-- **Books**:
+- **Books** 📚:
   - Armazena informações sobre os livros disponíveis na biblioteca.
-- **Users**:
+- **Users** 👥:
   - Armazena informações sobre os usuários da biblioteca.
-- **Loans**:
+- **Loans** 📑:
   - Registra os empréstimos realizados.
 
 ---
 
-## Estrutura do Projeto
+## Estrutura do Projeto 🛠️
 
 ```plaintext
 LibraryManager/
@@ -92,6 +93,7 @@ LibraryManager/
 ├── requirements.txt
 ├── main.py
 ├── .env.example
+├── funcoes_secundarias.py
 ├── database/
 │   ├── library_schema.sql
 │   └── db_manager.py
@@ -107,9 +109,18 @@ LibraryManager/
 
 ---
 
-## Licença
+## Licença📜
 
 Este projeto é licenciado sob a [MIT License](LICENSE).
+
+---
+
+## 📞 Contact / Contato
+
+[pt-br]
+- GitHub: [meuNobre](https://github.com/meuNobre)
+- Email: miguelnobre0411@gmail.com
+- Discord: icloudsz
 
 ---
 

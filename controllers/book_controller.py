@@ -1,8 +1,8 @@
-from database.db_manager import db_manage
+from database.db_manager import db_manager
 
 class BookController:
     def __init__(self):
-        self.db = db_manage
+        self.db = db_manager
 
     def add_book(self, title, author_id, genre):
 
@@ -14,7 +14,32 @@ class BookController:
         SELECT id, title, author_id, genre, is_available
         FROM Books
         """
-        return self.db.fetchall(query=query)
+        books = self.db.fetchall(query=query)
+        for book in books:
+            disponibilidade = "Disponível" if book['is_available'] == 1 else "Indisponível"   
+
+            print(f"""
+            ID: {book['id']}
+            Título: {book['title']}
+            Autor: {book['author_id']}
+            Gênero: {book['genre']}
+            Disponibilidade: {disponibilidade}""")
+
+    def list_books_disponiveis(self):
+        query = """
+        SELECT id, title, author_id, genre
+        FROM Books WHERE is_available = %s
+        """
+
+        books = self.db.fetchall(query=query,params=(True))
+
+    
+        for book in books:
+            print(f"""
+            ID: {book['id']}
+            Título: {book['title']}
+            Autor: {book['author_id']}
+            Gênero: {book['genre']}""")
 
     def delete_book(self, book_id):
         

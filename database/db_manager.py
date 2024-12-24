@@ -96,4 +96,9 @@ class DatabaseManager:
         }
         return nomes_amigaveis.get(campo, campo)
 
-db_manage = DatabaseManager(db_config)
+    def fetchone(self, query, params=None):
+        self.cursor.execute(query, params or ())
+        return self.cursor.fetchone()
+    
+
+db_manager = DatabaseManager(db_config)

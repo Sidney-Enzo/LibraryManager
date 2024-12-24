@@ -1,8 +1,8 @@
-from database.db_manager import db_manage
+from database.db_manager import db_manager
 
 class UserManager:
     def __init__(self):
-        self.db = db_manage
+        self.db = db_manager
 
     def listar_usuarios(self):
         #Lista todos os usuários registrados.
