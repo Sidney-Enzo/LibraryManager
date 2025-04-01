@@ -5,7 +5,6 @@ CREATE DATABASE library_manager;
 USE library_manager;
 -- Tabela de Autores
 
-
 CREATE TABLE authors (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(50) NOT NULL,

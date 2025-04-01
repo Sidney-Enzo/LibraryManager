@@ -28,7 +28,7 @@
 - **MySQL Workbench**: Ferramenta para gerenciar o banco de dados.
 - **Python-dotenv**: Para gerenciar variáveis de ambiente com segurança.
 - **Datetime**: Biblioteca Python para manipulação de datas e horas, utilizada para registrar e formatar informações temporais.
-
+- **Pytest**: Para testar funções
 ---
 
 ## Como Configurar o Projeto ⚙️
@@ -94,6 +94,7 @@ LibraryManager/
 ├── main.py
 ├── .env.example
 ├── funcoes_secundarias.py
+├── test.py
 ├── database/
 │   ├── library_schema.sql
 │   └── db_manager.py

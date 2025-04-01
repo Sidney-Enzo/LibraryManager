@@ -1,9 +1,9 @@
 class User:
-    def __init__(self, id, nome, email):
+    def __init__(self, id: str, name: str, email: str):
         self.id = id
-        self.nome = nome
+        self.name = name
         self.email = email
 
     def __str__(self):
-        return f"ID: {self.id} | Nome: {self.nome} | Email: {self.email}"
+        return f"ID: {self.id} | Nome: {self.name} | Email: {self.email}"
 

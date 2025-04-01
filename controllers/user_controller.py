@@ -8,7 +8,7 @@ class UserManager:
         #Lista todos os usuários registrados.
         query = """
         SELECT id, nome, email
-        FROM Users
+        FROM Users;
         """
         usuarios = self.db.fetchall(query=query)
         print("Lista de Usuários:")
@@ -18,61 +18,65 @@ class UserManager:
     def adicionar_usuario(self, nome, email):
         query = """
         SELECT email
-        FROM Users
+        FROM Users;
         """
-        emails = self.db.fetchall(query=query)
+        emails = self.db.fetchall(query)
         
         emails_utilizados = [email['email'] for email in emails]
 
         if str(email) in str(emails_utilizados):
             print("E-mail já cadastrado.")
         else:
-                self.db.execute_query(
-                    "INSERT INTO Users (nome, email) VALUES (%s, %s)", 
-                    (nome, email)
-                )
-                print(f"Usuário '{nome}' adicionado com sucesso!")
+            self.db.execute_query(
+                "INSERT INTO Users (nome, email) VALUES (%s, %s);", 
+                (nome, email)
+            )
+            print(f"Usuário '{nome}' adicionado com sucesso!")
             
 
     def editar_usuario(self):
         query = """
         SELECT id
-        FROM Users
+        FROM Users;
         """
-        ids = self.db.fetchall(query=query)
-        
-        ids_disponiveis = [str(ids[0]['id']) for id in ids]
-        
-        user_id = input("Digite o ID do usuário a ser editado: ")
+        ids = self.db.fetchall(query)
+        ids_disponiveis = [str(ids[id]['id']) for id in ids]
+        user_id = input("Digite o ID do usuário a ser editado: ").strip()
 
-        if str(user_id) in str(ids_disponiveis):
-            while True:
-                campo = input("Digite o campo a ser editado (nome, email): ").lower
-                match campo:
-                    case 'email':
-                        novo_valor = input("Digite o novo email: ")
-                        break
-                    case 'nome':
-                        novo_valor = input("Digite o novo nome: ")
-                        break
-                    case _:
-                        print('Inválido, tente novamente.')     
-            try:
-                self.db.execute_query(
-                    f"UPDATE Users SET {campo} = %s WHERE id = %s", 
-                    (novo_valor, user_id)
-                )
-                print(f"O campo '{campo}' do usuário ID {user_id} foi atualizado para '{novo_valor}'.")
-            except Exception as e:
-                print(f"Erro ao editar usuário: {e}")
-        else:
+        if not (str(user_id) in str(ids_disponiveis)):
             print("ID inválido.")
+            return
+        
+        while True:
+            campo = input("Digite o campo a ser editado (nome, email): ").lower()
+            match campo:
+                case 'email':
+                    novo_valor = input("Digite o novo email: ").strip()
+                    break
+                
+                case 'nome':
+                    novo_valor = input("Digite o novo nome: ").strip()
+                    break
+                
+                case _:
+                    print('Inválido, tente novamente.')
+
+
+
+        try:
+            self.db.execute_query(
+                f"UPDATE Users SET {campo} = %s WHERE id = %s", 
+                (novo_valor, user_id)
+            )
+            print(f"O campo '{campo}' do usuário ID {user_id} foi atualizado para '{novo_valor}'.")
+        except Exception as e:
+            print(f"Erro ao editar usuário: {e}")
             
         
     def excluir_usuario(self, user_id):
         #Remove um usuário do banco de dados.  
         try:
-            self.db.execute_query("DELETE FROM Users WHERE id = %s", (user_id,))
+            self.db.execute_query("DELETE FROM Users WHERE id = %s;", (user_id))
             print(f"Usuário ID {user_id} excluído com sucesso!")
         except Exception as e:
             print(f"Erro ao excluir usuário: {e}")
@@ -80,7 +84,7 @@ class UserManager:
     def buscar_usuario_por_id(self, user_id):
         # Busca um usuário específico pelo ID.
         try:
-            usuario = self.db.fetchone("SELECT * FROM Users WHERE id = %s", (user_id,))
+            usuario = self.db.fetchone("SELECT * FROM Users WHERE id = %s;", (user_id))
             if usuario:
                 print(f"ID: {usuario['id']} | Nome: {usuario['nome']} | Email: {usuario['email']}")
             else:
@@ -90,5 +94,4 @@ class UserManager:
 
     def fechar_conexao(self):
         #Fecha a conexão com o banco de dados.
-        
         self.db.close_connection()
